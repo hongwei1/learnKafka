@@ -4,7 +4,7 @@
 
 build
 target
-
+/src/main/resource/kafka/kafka_2.11-0.10.2.0/logs
 *.class
 *.ear
 *.iml
@@ -33,4 +33,6 @@ a.json
 a.txt
 a.xml
 pain*.xml
+
+temp
 

@@ -12,7 +12,7 @@ import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
 
-// Design my own Consumer 
+// Design my own KafkaConsumer 
 public class KafkaConsumer {
 
   private final ConsumerConnector consumer;
@@ -71,12 +71,13 @@ public class KafkaConsumer {
 
   public static void main(String[] args) {
 
+    // these are the props, just three fields: zooKeeper, groupId and topic 
     String zooKeeper = "localhost:2181";
     String groupId = "group1";
     String topic = "test";
 
+    // 
     int threads = 3;
-
     KafkaConsumer example = new KafkaConsumer(zooKeeper, groupId, topic);
 
     example.run(threads);

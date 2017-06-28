@@ -18,10 +18,15 @@ public class KafkaProducer
     Properties props = new Properties();
     props.put("metadata.broker.list", "localhost:9092");
     props.put("serializer.class", StringEncoder.class.getName());
-    props.put("request.required.arks", "1");
+    props.put("request.required.arks", "1"); // there are three values: 1 0 -1, 
+    // 1 only send, no check for get
+    // 0 send, and check they get it 
+    // -1 send, check they get and check have follower.
+    
 
     // 2 change the Java Properties to Kafka ProducerConfig class.
     ProducerConfig config = new ProducerConfig(props);
+    
 
     // 3 use the configure to set up a Kafka Producer 
     Producer<String, String> producer = new Producer<String, String>(config);
